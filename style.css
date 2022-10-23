@@ -1,0 +1,7 @@
+h1, h2, p, input, li {
+    font-family: verdana;
+}
+div {
+    font-family: verdana;
+    border: 1px solid #888;
+}
