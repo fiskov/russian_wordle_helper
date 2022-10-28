@@ -5,9 +5,9 @@
     <script>
         function searchWords()
         {
-            var words = document.getElementById("dictionary").value.split(" ");
-            var includeLetters = document.getElementById("includeLetters").value.split('');
-            var excludeLetters = document.getElementById("excludeLetters").value.split('');
+            var words = document.getElementById("dictionary").value.toLowerCase().split(" ");
+            var includeLetters = document.getElementById("includeLetters").value.toLowerCase().split('');
+            var excludeLetters = document.getElementById("excludeLetters").value.toLowerCase().split('');
 
             var filterStr = ""
             for (i=0; i<5; i++)
@@ -16,7 +16,7 @@
                 filterStr += (letter !== "" ? letter : ".");
             }
 
-            regexp = new RegExp(filterStr)
+            regexp = new RegExp(filterStr.toLowerCase())
 
             document.getElementById("result").innerHTML = words.filter(word =>
                         includeLetters.every(char => word.includes(char)) &&
@@ -47,11 +47,11 @@
     <p>В слове нет букв:</p>
     <input type="text" id="excludeLetters" size="25"/>
     <p>Известные буквы:</p>
-    <input type="text" id="letter_0" size="1"/>
-    <input type="text" id="letter_1" size="1"/>
-    <input type="text" id="letter_2" size="1"/>
-    <input type="text" id="letter_3" size="1"/>
-    <input type="text" id="letter_4" size="1"/>
+    <input type="text" id="letter_0" size="1" maxlength="1"/>
+    <input type="text" id="letter_1" size="1" maxlength="1"/>
+    <input type="text" id="letter_2" size="1" maxlength="1"/>
+    <input type="text" id="letter_3" size="1" maxlength="1"/>
+    <input type="text" id="letter_4" size="1" maxlength="1"/>
     <p></p>
     <input type="button" value="Подобрать" onclick="searchWords()"/>
     <p>Подходящие варианты:</p>
